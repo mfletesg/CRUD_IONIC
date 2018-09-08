@@ -6,7 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
+import { HttpModule, JsonpModule } from '@angular/http'; //Añadimos para hacer peticiones
+import { ServerProvider } from '../pages/server'; //Añadimos el provider para hacer peticiones get y post a laravel
 @NgModule({
   declarations: [
     MyApp,
@@ -14,6 +15,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpModule, //*
+    JsonpModule, //*
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -24,6 +27,7 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
+    ServerProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
