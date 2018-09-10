@@ -8,7 +8,7 @@ import { ServerProvider } from '../../pages/server'; //Provider para hacer petic
   providers:[ServerProvider]
 })
 export class HomePage {
-
+  List_Users:any;
   constructor(public navCtrl: NavController, public server: ServerProvider) {
     this.getUsers(); //LLamamos a la funcion para obtener todos los empleados
   }
@@ -18,8 +18,10 @@ export class HomePage {
     this.server.ObtenerUsuarios()
     .subscribe(
       data =>{
-        console.log(data);
+        this.List_Users =  data.json(); //Obtenemos los datos en json y lo guardamos
       });
   }
+
+
 
 }

@@ -1,14 +1,40 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      CRUD IONIC 3
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
+  Lista de Usuarios
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+    <ion-list *ngFor="let user of this.List_Users">
+      <ion-item-sliding>
+        <ion-item >
+          <ion-avatar item-start>
+            <img src="img/user.png">
+          </ion-avatar>
+          <h2>{{user.name}}</h2>
+          <h2>{{user.email}}</h2>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="primary">
+            <ion-icon name="text"></ion-icon>
+            Text
+          </button>
+          <button ion-button color="secondary">
+            <ion-icon name="call"></ion-icon>
+            Editar
+          </button>
+        </ion-item-options>
+        <ion-item-options side="right">
+          <button ion-button color="primary">
+            <ion-icon name="mail"></ion-icon>
+            Eliminar
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
   </p>
 </ion-content>

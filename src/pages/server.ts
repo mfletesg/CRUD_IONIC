@@ -12,14 +12,14 @@ export class ServerProvider {
 
 
   ObtenerUsuarios(){
-    var headers = new Headers();
-    headers.append('Access-Control-Allow-Origin' , '*');
-    let options = new RequestOptions({ headers:headers, withCredentials: true});
-    return this.http.get('http://localhost:80/yourproject/public/api/data')
+    var headers = new Headers(); //Creamos la cabecera
+    headers.append('Access-Control-Allow-Origin' , '*'); //Indicamos que vamos hacer peticiones a todas las rutas
+    let options = new RequestOptions({ headers:headers, withCredentials: true}); //
+    return this.http.get('http://localhost:80/API_REST_Laravel/public/api/user')
     .map(res => res);
   }
 
-  
+
 
 
 }
