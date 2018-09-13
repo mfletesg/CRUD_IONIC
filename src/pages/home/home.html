@@ -7,7 +7,29 @@
 </ion-header>
 
 <ion-content padding>
-  Lista de Usuarios
+
+
+  <h4>Registro de usuarios</h4>
+  <form (ngSubmit)="CrearUsuario()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Correo</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Guardar</button>
+  </form>
+
+
+  <hr>
+  <h4>Lista de Usuarios</h4>
   <p>
     <ion-list *ngFor="let user of this.List_Users">
       <ion-item-sliding>
@@ -19,17 +41,13 @@
           <h2>{{user.email}}</h2>
         </ion-item>
         <ion-item-options side="left">
-          <button ion-button color="primary">
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
-          <button ion-button color="secondary">
+          <button ion-button color="secondary" (click)="BuscarUsuario(user.id)">
             <ion-icon name="call"></ion-icon>
             Editar
           </button>
         </ion-item-options>
         <ion-item-options side="right">
-          <button ion-button color="primary">
+          <button ion-button color="danger" (click)="EliminarUsuario(user.id)">
             <ion-icon name="mail"></ion-icon>
             Eliminar
           </button>

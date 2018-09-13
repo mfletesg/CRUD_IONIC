@@ -19,6 +19,48 @@ export class ServerProvider {
     .map(res => res);
   }
 
+  NuevoUsuario(item):any{
+    let headers = new Headers({'Content-Type' : 'application/json'});
+    return this.http.post(
+      'http://localhost:80/API_REST_Laravel/public/api/user/create',
+      JSON.stringify(item), {headers: headers}
+    )
+    .map(res => res);
+
+  }
+
+  //Buscamos el usuario por su id
+  BuscarUsuarioID(id):any{
+    let headers = new Headers({'Content-Type' : 'application/json'});
+    return this.http.post(
+      'http://localhost:80/API_REST_Laravel/public/api/user/search',
+      JSON.stringify(id), {headers: headers}
+    )
+    .map(res => res);
+  }
+
+
+  //Actualizamos el usuario
+  ActualizarUsuario(data):any{
+  let headers = new Headers({'Content-Type' : 'application/json'});
+  return this.http.post(
+    'http://localhost:80/API_REST_Laravel/public/api/user/update',
+    JSON.stringify(data), {headers: headers}
+  )
+  .map(res => res);
+  }
+
+
+  //Eliminamos el usuario
+  EliminarUsuarioID(id):any{
+    let headers = new Headers({'Content-Type' : 'application/json'});
+    return this.http.post(
+      'http://localhost:80/API_REST_Laravel/public/api/user/delete',
+      JSON.stringify(id), {headers: headers}
+    )
+    .map(res => res);
+  }
+
 
 
 
